@@ -1,0 +1,34 @@
+{
+  "name": "game_dev_pixi_shapes",
+  "version": "1.0.0",
+  "description": "GameDev Test Task",
+  "main": "index.js",
+  "scripts": {
+    "build:prod": "node ./esbuild/build.prod.mjs",
+    "build:dev": "node ./esbuild/build.dev.mjs",
+    "serve:dev": "node ./esbuild/serve.dev.mjs",
+    "prettier:format": "prettier --config .prettierrc \"src**/*.ts\" --write",
+    "prettier:watch": "onchange \"src/**/*.ts\" -- prettier --write {{changed}}",
+    "lint:check": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
+  "author": "Igor Ostapov",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "esbuild": "^0.20.0",
+    "esbuild-copy-static-files": "^0.1.0",
+    "esbuild-sass-plugin": "^3.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "onchange": "^7.1.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "pixi.js": "^7.3.2"
+  }
+}

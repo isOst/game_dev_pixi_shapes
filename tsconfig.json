@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+      "module": "CommonJS",
+      "target": "es2020",
+      "sourceMap": true,
+      "outDir": "dist",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "lib": [
+        "dom",
+        "scripthost",
+        "es2015",
+        "es2016",
+        "es2017",
+        "es2018",
+        "es2019",
+        "es2020",
+        "es2022"
+      ],
+      "strict": true,
+      "baseUrl": ".",
+      "skipLibCheck": true,
+      "allowJs": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "downlevelIteration": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitAny": true              
+    },
+    "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  }
