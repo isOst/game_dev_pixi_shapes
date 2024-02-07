@@ -1,5 +1,21 @@
-div {
-    &:hover {
-        cursor: pointer;
+#app {
+    width: 200px;
+    height: 200px;
+}
+
+.game-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container, .settings-container {
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
     }
 }
