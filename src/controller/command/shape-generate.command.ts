@@ -1,4 +1,3 @@
-import { Ticker } from "pixi.js";
 import { random } from "src/common/utils";
 import { ServicesName } from "src/model/constants/model.constants";
 import { ShapesService } from "src/model/services/shapes.service";
