@@ -3,7 +3,7 @@ import { UIElementSelector } from "src/common/ui.constants";
 import { getDOMElement } from "src/common/utils";
 import { EventManager } from "src/core/event-manager";
 
-export class UIView {
+export class UIComponent {
   public shapesNumberValue: Element | null = null;
   public shapesAreaValue: Element | null = null;
   public shapesPerSecValue: Element | null = null;
@@ -12,6 +12,7 @@ export class UIView {
   public gravityValue: Element | null = null;
   public gravityIncrementButton: Element | null = null;
   public gravityDecrementButton: Element | null = null;
+  public app: Element | null = null;
 
   constructor() {
     this.registerUIElements();
@@ -27,6 +28,7 @@ export class UIView {
     this.gravityValue = getDOMElement(UIElementSelector.GRAVITY_VALUE);
     this.gravityIncrementButton = getDOMElement(UIElementSelector.GRAVITY_INCREMENT_BUTTON);
     this.gravityDecrementButton = getDOMElement(UIElementSelector.GRAVITY_DECREMENT_BUTTON);
+    this.app = getDOMElement("#app");
   }
 
   public registerEvents(): void {
@@ -61,6 +63,18 @@ export class UIView {
   public updateShapesPerSecValue(shapesPerSec: number): void {
     if (this.shapesPerSecValue) {
       this.shapesPerSecValue.innerHTML = shapesPerSec.toString();
+    }
+  }
+
+  public updateShapesAreaValue(area: number = 0): void {
+    if (this.shapesAreaValue) {
+      this.shapesAreaValue.innerHTML = area.toString();
+    }
+  }
+
+  public updateShapesAmountValue(amount: number = 0): void {
+    if (this.shapesNumberValue) {
+      this.shapesNumberValue.innerHTML = amount.toString();
     }
   }
 }

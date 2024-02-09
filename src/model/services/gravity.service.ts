@@ -2,7 +2,7 @@ const GRAVITY_MIN = 1;
 const GRAVITY_MAX = 10;
 
 export class GravityService {
-  private _gravity: number = 1;
+  private _gravity: number = 4;
 
   public getGravity(): number {
     return this._gravity;

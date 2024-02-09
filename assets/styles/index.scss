@@ -1,6 +1,6 @@
-#app {
-    width: 200px;
-    height: 200px;
+#app, #app > canvas {
+    width: 50vh;
+    height: 50vh;
 }
 
 .game-body {

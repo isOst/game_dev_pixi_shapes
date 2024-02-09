@@ -1,7 +1,7 @@
 import { GravityService } from "src/model/services/gravity.service";
 import { Command } from "src/patterns/command";
 import { GameFacade } from "src/patterns/facade";
-import { UIView } from "src/view/ui.view";
+import { UIView } from "src/view/component/ui.component";
 
 export class GravityDecrementCommand extends Command {
   public static execute(): void {

@@ -1,13 +1,13 @@
 import { GravityService } from "src/model/services/gravity.service";
+import { ShapesService } from "src/model/services/shapes.service";
 import { Command } from "src/patterns/command";
 import { GameFacade } from "src/patterns/facade";
-import { UIView } from "src/view/component/ui.component";
 
-export class GravityIncrementCommand extends Command {
+export class ShapesMoveCommand extends Command {
   public static execute(): void {
     const gravityService: GravityService = GameFacade.instance.model.getService("gravity");
-    const uiView: UIView = GameFacade.instance.view.getComponent("ui");
-    gravityService.increaseGravityValue();
-    uiView.updateGravityValue(gravityService.getGravity());
+    const shapesService: ShapesService = GameFacade.instance.model.getService("shapes");
+
+    shapesService.moveShapes(gravityService.getGravity());
   }
 }
