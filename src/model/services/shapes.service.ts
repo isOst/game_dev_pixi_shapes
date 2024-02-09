@@ -1,4 +1,13 @@
+import { Point } from "pixi.js";
+import { random } from "src/common/utils";
+import { Circle } from "src/view/component/shape/circle";
+import { Ellipse } from "src/view/component/shape/ellipse";
+import { Hexagon } from "src/view/component/shape/hexagon";
+import { Pentagon } from "src/view/component/shape/pentagon";
+import { Rectangle } from "src/view/component/shape/rectangle";
 import { Shape } from "src/view/component/shape/shape";
+import { Triangle } from "src/view/component/shape/triangle";
+import { AppResolution } from "src/view/constants/app.constants";
 
 const SHAPES_PER_SECOND_MIN = 1;
 const SHAPES_PER_SECOND_MAX = 20;
@@ -8,6 +17,7 @@ export class ShapesService {
   private _shapesPerSecond: number = 1;
   private _timeToGenerate: number = 0;
   private _elapsedGenerationTimeCounter: number = 0;
+  private _predefinedShapePosition: Point | null = null;
 
   constructor() {
     this.setTimeToGenerate();
@@ -65,6 +75,28 @@ export class ShapesService {
 
   public getShapes(): Shape[] {
     return this._shapes;
+  }
+
+  public defineShapePosition(position: Point): void {
+    this._predefinedShapePosition = position;
+  }
+
+  public generateShape(): Shape {
+    const shapeList = [Circle, Ellipse, Triangle, Rectangle, Pentagon, Hexagon];
+    const shapeType = random(0, shapeList.length);
+    const shape = new shapeList[shapeType]();
+    if (this._predefinedShapePosition) {
+      const { x, y } = this._predefinedShapePosition;
+      shape.view.x = x;
+      shape.view.y = y;
+      this._predefinedShapePosition = null;
+    } else {
+      shape.view.x = random(0, AppResolution.WIDTH - shape.view.width);
+      shape.view.y = -shape.view.height;
+    }
+
+    this.addShape(shape);
+    return shape;
   }
 
   public addShape(shape: Shape): void {

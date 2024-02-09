@@ -7,37 +7,40 @@
     <title>GameDev Test Task</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script src="index.js" async></script>
   </head>
   <body>
     <div class="game-body">
       <div class="info-container">
         <div class="info-container__item">
-          <div>Number of shapes: </div>
-          <div id="shapes-number">0</div>
+          <div class="info-container__item__title">Num. of shapes: </div>
+          <div class="info-container__item__value" id="shapes-number">0</div>
         </div>
         <div class="info-container__item">
-          <div>Shapes surface area: </div>
-          <div id="shapes-surface-area">0</div>
+          <div class="info-container__item__title">Shapes surface area: </div>
+          <div class="info-container__item__value" id="shapes-surface-area">0</div>
         </div>
       </div>
       <div id="app"></div>
       <div class="settings-container">
         <div class="settings-container__item">
-          <div>Shapes per sec</div>
+          <div class="settings-container__item__title">Shapes per sec</div>
           <div class="settings-container__buttons">
-            <button id="shapes-increment">+</button>
-            <button id="shapes-decrement">-</button>
+            <div class="button" id="shapes-increment">+</div>
+            <div class="button" id="shapes-decrement">-</div>
           </div>
-          <span id="shapes-per-second">0</span>
+          <div class="settings-container__item__value" id="shapes-per-second">0</div>
         </div>
         <div class="settings-container__item">
-          <div>Gravity value</div>
+          <div class="settings-container__item__title">Gravity value</div>
           <div class="settings-container__buttons">
-            <button id="gravity-increment">+</button>
-            <button id="gravity-decrement">-</button>
+            <div class="button" id="gravity-increment">+</div>
+            <div class="button" id="gravity-decrement">-</div>
           </div>
-          <span id="gravity">0</span>
+          <div class="settings-container__item__value" id="gravity">0</div>
         </div>
       </div>
     </div>

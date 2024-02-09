@@ -1,4 +1,7 @@
 import { Application, Container, Graphics } from "pixi.js";
+import { AppResolution } from "../constants/app.constants";
+import { EventManager } from "src/core/event-manager";
+import { EventName } from "src/common/event.constants";
 
 export class AppComponent {
   public instance!: Application;
@@ -17,7 +20,11 @@ export class AppComponent {
   }
 
   private initPixiApplication(): void {
-    this.instance = new Application({ width: 800, height: 800, sharedTicker: true });
+    this.instance = new Application({
+      width: AppResolution.WIDTH,
+      height: AppResolution.HEIGHT,
+      sharedTicker: true
+    });
     this.instance.stage.eventMode = "static";
   }
 
@@ -28,9 +35,9 @@ export class AppComponent {
     graphics.endFill();
     graphics.eventMode = "static";
     graphics.cursor = "pointer";
-    graphics.on("pointerdown", () => {
-      console.log("djkfbdjfdf");
-    });
+    graphics.onpointerdown = (event) => {
+      EventManager.instance.emit(EventName.BACKGROUND_INTERACT, event.screen);
+    };
     this.instance.stage.addChild(graphics);
   }
 }

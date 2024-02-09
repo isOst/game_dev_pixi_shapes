@@ -13,6 +13,8 @@ import { OnTickUpdate } from "./controller/observer/tick-update.observer";
 import { ViewComponentName } from "./view/constants/view.constants";
 import { ServicesName } from "./model/constants/model.constants";
 import { OnWindowLoad } from "./controller/observer/window-load.observer";
+import { OnShapeInteract } from "./controller/observer/shape-interact.observer";
+import { OnBackgroundInteract } from "./controller/observer/background-interact.observer";
 
 const game = GameFacade.instance;
 
@@ -31,6 +33,8 @@ EventManager.instance.subscribe(EventName.GRAVITY_CHANGE, new OnGravityChange())
 EventManager.instance.subscribe(EventName.SHAPES_AMOUNT_CHANGE, new OnShapesPerSecChange());
 EventManager.instance.subscribe(EventName.TICKER_UPDATE, new OnTickUpdate());
 EventManager.instance.subscribe(EventName.WINDOW_LOAD, new OnWindowLoad());
+EventManager.instance.subscribe(EventName.SHAPE_INTERACT, new OnShapeInteract());
+EventManager.instance.subscribe(EventName.BACKGROUND_INTERACT, new OnBackgroundInteract());
 
 const ticker = Ticker.shared;
 ticker.autoStart = false;

@@ -1,6 +1,8 @@
 import { Graphics, Point } from "pixi.js";
 import { random } from "src/common/utils";
 import { ColorList } from "../../constants/shape.constants";
+import { EventManager } from "src/core/event-manager";
+import { EventName } from "src/common/event.constants";
 
 export class Shape {
   private _view: Graphics = new Graphics();
@@ -9,6 +11,7 @@ export class Shape {
   constructor() {
     this.createGraphicsView();
     this.createShape();
+    this.addShapeInteraction();
   }
 
   public get view(): Graphics {
@@ -30,6 +33,14 @@ export class Shape {
   private createGraphicsView(): void {
     this._view.beginFill(this.getFillColor(), 1);
     this._view.lineStyle(2, this.getLineColor(), 1);
+  }
+
+  private addShapeInteraction(): void {
+    this._view.eventMode = "static";
+    this._view.cursor = "pointer";
+    this._view.onpointerdown = () => {
+      EventManager.instance.emit(EventName.SHAPE_INTERACT, this);
+    };
   }
 
   private getLineColor(): number {

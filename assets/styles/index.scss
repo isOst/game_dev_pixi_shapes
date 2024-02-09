@@ -1,6 +1,14 @@
+* {
+    font-family: 'JetBrains Mono', monospace, sans-serif;
+}
+
 #app, #app > canvas {
     width: 50vh;
     height: 50vh;
+}
+
+#app {
+    margin: 40px 0;
 }
 
 .game-body {
@@ -19,22 +27,54 @@
         flex-direction: column;
         margin: 0 20px;
         align-items: center;
+
+        &__title {
+            text-align: center;
+        }
+
+        &__value {
+            font-weight: 600;
+            font-size: 24px;
+        }
     }
 
     &__buttons {
         display: flex;
         flex-direction: row;
+        margin: 20 0px;
 
         &:hover {
             cursor: pointer;
+        }
+
+        & > .button {
+            width: 40px;
+            height: 30px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            box-shadow: 0 0 4px rgba(0,0,0, 0.6);
+            font-size: 20px;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+                box-shadow: 0 0 8px rgba(0,0,0, 0.6);
+            }
         }
     }
 }
 
 @media screen and (orientation: landscape) and (max-height: "450px") {
     #app, #app > canvas {
-        width: 50vw;
-        height: 50vw;
+        width: 90vh;
+        height: 90vh;
+    }
+
+    #app {
+        margin: 0;
     }
     
     .game-body {
