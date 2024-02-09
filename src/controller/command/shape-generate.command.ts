@@ -1,5 +1,6 @@
 import { Ticker } from "pixi.js";
 import { random } from "src/common/utils";
+import { ServicesName } from "src/model/constants/model.constants";
 import { ShapesService } from "src/model/services/shapes.service";
 import { Command } from "src/patterns/command";
 import { GameFacade } from "src/patterns/facade";
@@ -10,11 +11,12 @@ import { Hexagon } from "src/view/component/shape/hexagon";
 import { Pentagon } from "src/view/component/shape/pentagon";
 import { Rectangle } from "src/view/component/shape/rectangle";
 import { Triangle } from "src/view/component/shape/triangle";
+import { ViewComponentName } from "src/view/constants/view.constants";
 
 export class ShapeGenerateCommand extends Command {
   public static execute(): void {
-    const shapesService: ShapesService = GameFacade.instance.model.getService("shapes");
-    const appComponent: AppComponent = GameFacade.instance.view.getComponent("app");
+    const shapesService: ShapesService = GameFacade.instance.model.getService(ServicesName.SHAPES);
+    const appComponent: AppComponent = GameFacade.instance.view.getComponent(ViewComponentName.APP);
     shapesService.dropElapsedGenTime();
 
     const shapeList = [Circle, Ellipse, Triangle, Rectangle, Pentagon, Hexagon];

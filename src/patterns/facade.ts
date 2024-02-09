@@ -25,8 +25,4 @@ export class GameFacade {
 
     return GameFacade._instance;
   }
-
-  public getModel(name: string): any {
-    return this.model.getService(name);
-  }
 }
